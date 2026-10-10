@@ -1,0 +1,67 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.141'
+}
+
+group = 'dev.netmusic.jukeboxguard'
+version = '0.1.0-alpha.1+mc1.21.1'
+
+base { archivesName = 'jukebox-music-guard' }
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+repositories { mavenCentral() }
+
+sourceSets {
+    smoke {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+
+neoForge {
+    version = '21.1.229'
+    mods {
+        jukeboxmusicguard {
+            sourceSet sourceSets.main
+            if (providers.gradleProperty('smokeTest').isPresent()) {
+                sourceSet sourceSets.smoke
+            }
+        }
+    }
+    runs {
+        client {
+            client()
+            gameDirectory = file('run')
+            systemProperty 'mixin.debug.export', 'true'
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testImplementation 'org.mockito:mockito-core:5.15.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+sourceSets.test.compileClasspath += sourceSets.main.compileClasspath
+sourceSets.test.runtimeClasspath += sourceSets.main.runtimeClasspath
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+test { useJUnitPlatform() }
+
+tasks.named('processResources', ProcessResources).configure {
+    def metadata = [mod_version: project.version]
+    inputs.properties(metadata)
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand(metadata)
+    }
+}
+
+jar { from('LICENSE') }

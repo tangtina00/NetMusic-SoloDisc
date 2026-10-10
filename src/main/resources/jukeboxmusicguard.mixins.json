@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.netmusic.jukeboxguard.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "NetMusicBackpackSoundMixin",
+    "SoundEngineMixin",
+    "MusicManagerMixin"
+  ],
+  "injectors": { "defaultRequire": 1 }
+}

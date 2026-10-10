@@ -1,0 +1,28 @@
+# Generated files and local development data
+/.gradle/
+/.tools/
+/.cache/
+/build/
+/run/
+/logs/
+/out/
+/bin/
+/.local-docs/
+
+# Local IDE state
+*.iml
+/.idea/
+/.vscode/
+/.classpath
+/.project
+/.settings/
+
+# OS and JVM diagnostic files
+.DS_Store
+Thumbs.db
+Desktop.ini
+hs_err_pid*.log
+replay_pid*.log
+*.hprof
+
+# Keep gradle/wrapper/gradle-wrapper.jar tracked: it bootstraps Gradle.
