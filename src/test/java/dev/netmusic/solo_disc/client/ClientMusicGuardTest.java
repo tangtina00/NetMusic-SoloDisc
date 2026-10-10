@@ -1,4 +1,4 @@
-package dev.netmusic.jukeboxguard.client;
+package dev.netmusic.solo_disc.client;
 
 import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.client.resources.sounds.SoundInstance;

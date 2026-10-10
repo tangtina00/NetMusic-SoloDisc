@@ -1,4 +1,4 @@
-package dev.netmusic.jukeboxguard.client;
+package dev.netmusic.solo_disc.client;
 
 import com.github.L_Ender.cataclysm.client.sound.BossMusicSound;
 import net.minecraft.client.resources.sounds.SoundInstance;
@@ -53,12 +53,12 @@ class MusicGuardPolicyTest {
     }
 
     @Test
-    void cataclysmBossMusicIsBackgroundWhenItsCompatibilitySwitchIsEnabled() {
+    void recognizedModMusicIsBackgroundWhenOtherModMusicSuppressionIsEnabled() {
         assertTrue(MusicGuardPolicy.isBackground(new BossMusicSound(), true, List.of()));
     }
 
     @Test
-    void cataclysmBossMusicIsNotBackgroundWhenItsCompatibilitySwitchIsDisabled() {
+    void recognizedModMusicIsNotBackgroundWhenOtherModMusicSuppressionIsDisabled() {
         assertFalse(MusicGuardPolicy.isBackground(new BossMusicSound(), false, List.of()));
     }
 

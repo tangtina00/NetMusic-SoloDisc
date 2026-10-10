@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "dev.netmusic.jukeboxguard.mixin",
+  "package": "dev.netmusic.solo_disc.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
     "NetMusicBackpackSoundMixin",

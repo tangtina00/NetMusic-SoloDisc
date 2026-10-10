@@ -3,36 +3,36 @@ loaderVersion="[4,)"
 license="MIT"
 
 [[mods]]
-modId="jukeboxmusicguard"
+modId="netmusic_solo_disc"
 version="${mod_version}"
-displayName="Jukebox Music Guard"
+displayName="NetMusic:Solo Disc"
 description='''Suppress background music while a nearby NetMusic backpack record is playing.'''
 
 [[mixins]]
-config="jukeboxmusicguard.mixins.json"
+config="NetMusicSoloDisc.mixins.json"
 
-[[dependencies.jukeboxmusicguard]]
+[[dependencies.netmusic_solo_disc]]
 modId="neoforge"
 type="required"
 versionRange="[21.1.1,)"
 ordering="NONE"
 side="CLIENT"
 
-[[dependencies.jukeboxmusicguard]]
+[[dependencies.netmusic_solo_disc]]
 modId="minecraft"
 type="required"
 versionRange="[1.21.1,1.21.2)"
 ordering="NONE"
 side="CLIENT"
 
-[[dependencies.jukeboxmusicguard]]
+[[dependencies.netmusic_solo_disc]]
 modId="netmusic"
 type="required"
 versionRange="[1.5.2-neoforge+mc1.21.1,1.6)"
 ordering="AFTER"
 side="CLIENT"
 
-[[dependencies.jukeboxmusicguard]]
+[[dependencies.netmusic_solo_disc]]
 modId="sophisticatedcore"
 type="required"
 versionRange="[1.5.2,)"

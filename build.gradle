@@ -3,10 +3,10 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.141'
 }
 
-group = 'dev.netmusic.jukeboxguard'
+group = 'dev.netmusic.solo_disc'
 version = '0.1.0-alpha.1+mc1.21.1'
 
-base { archivesName = 'jukebox-music-guard' }
+base { archivesName = 'NetMusicSoloDisc' }
 
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -24,7 +24,7 @@ sourceSets {
 neoForge {
     version = '21.1.229'
     mods {
-        jukeboxmusicguard {
+        netmusic_solo_disc {
             sourceSet sourceSets.main
             if (providers.gradleProperty('smokeTest').isPresent()) {
                 sourceSet sourceSets.smoke

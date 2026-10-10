@@ -1,4 +1,4 @@
-package dev.netmusic.jukeboxguard.client;
+package dev.netmusic.solo_disc.client;
 
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.sounds.SoundSource;
@@ -11,12 +11,12 @@ public final class MusicGuardPolicy {
     private MusicGuardPolicy() {
     }
 
-    public static boolean isBackground(SoundInstance sound, boolean suppressCataclysm, List<? extends String> extraSounds) {
+    public static boolean isBackground(SoundInstance sound, boolean suppressOtherModMusic, List<? extends String> extraSounds) {
         if (sound instanceof NetworkRecord) {
             return false;
         }
         return sound.getSource() == SoundSource.MUSIC
-                || suppressCataclysm && sound.getClass().getName().equals(CATACLYSM_BOSS_SOUND)
+                || suppressOtherModMusic && sound.getClass().getName().equals(CATACLYSM_BOSS_SOUND)
                 || extraSounds.contains(sound.getLocation().toString());
     }
 }

@@ -1,6 +1,6 @@
-package dev.netmusic.jukeboxguard.client;
+package dev.netmusic.solo_disc.client;
 
-import dev.netmusic.jukeboxguard.config.ClientConfig;
+import dev.netmusic.solo_disc.config.ClientConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.client.resources.sounds.TickableSoundInstance;
@@ -30,7 +30,7 @@ public final class ClientMusicGuard {
 
     private static void onStreamingStarted(PlayStreamingSourceEvent event) {
         SoundInstance sound = event.getSound();
-        if (sound instanceof NetworkRecord record && record.jukeboxmusicguard$isStreamReady()) {
+        if (sound instanceof NetworkRecord record && record.netmusic_solo_disc$isStreamReady()) {
             // Source events run on the audio thread; all tracker mutations stay on the client thread.
             Minecraft minecraft = Minecraft.getInstance();
             minecraft.execute(() -> {
@@ -72,7 +72,7 @@ public final class ClientMusicGuard {
     }
 
     public static boolean isBackground(SoundInstance sound) {
-        return MusicGuardPolicy.isBackground(sound, ClientConfig.SUPPRESS_CATACLYSM.get(), ClientConfig.EXTRA_BACKGROUND_SOUNDS.get());
+        return MusicGuardPolicy.isBackground(sound, ClientConfig.SUPPRESS_OTHER_MOD_MUSIC.get(), ClientConfig.EXTRA_BACKGROUND_SOUNDS.get());
     }
 
     public static boolean isSuppressing() {
